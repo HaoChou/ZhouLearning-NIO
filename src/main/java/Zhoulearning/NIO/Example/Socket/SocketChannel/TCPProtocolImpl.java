@@ -49,7 +49,7 @@ public class TCPProtocolImpl implements TCPProtocol {
 
             String sendString ="你好，客户端，@"+new Date().toString()+
                     ",已收到你的信息："+receievedString;
-            byteBuffer.wrap(sendString.getBytes("UTF-8"));
+            byteBuffer=ByteBuffer.wrap(sendString.getBytes("UTF-8"));
             clientSocketChannel.write(byteBuffer);
 
 //            key.interestOps(SelectionKey.OP_READ|SelectionKey.OP_WRITE);
