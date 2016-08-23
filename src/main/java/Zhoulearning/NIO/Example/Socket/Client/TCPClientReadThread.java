@@ -28,8 +28,7 @@ public class TCPClientReadThread implements Runnable {
 
             while (true) {
 
-             int i =   selector.select();
-                System.out.println("each11**************"+i);
+                int i = selector.select();//阻塞
                 if (i > 0) {
                     for (SelectionKey key : selector.selectedKeys()) {
                         if (key.isReadable()) {
@@ -42,19 +41,17 @@ public class TCPClientReadThread implements Runnable {
                             System.out.println("接受来自服务器"
                                     + socketChannel.socket().getRemoteSocketAddress()
                                     + "的信息：" + recevedString);
-                            key.interestOps(SelectionKey.OP_READ);
+//                            key.interestOps(SelectionKey.OP_READ);
                         }
                         // 删除正在处理的SelectionKey
                         selector.selectedKeys().remove(key);
                     }
                 }
 
-                System.out.println("each**************");
-
             }
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("TCPClientReadThread Error!"+e.toString());
+            System.out.println("TCPClientReadThread Error!" + e.toString());
         }
     }
 }
