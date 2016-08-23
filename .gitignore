@@ -1,31 +1,8 @@
-#maven ignore
-target/
-*.tar.gz
-*.jar
-*.zip
-*.tar
-*.war
-
-#idea ignore
-.idea/
-*.iml
-*.ipr
-*.iws
-
-
-
-#eclipse ignore
-.settings/
-.project
 .classpath
-
-#temp ignore
-*.log
-*.cache
-*.diff
-*.patch
-*.tmp
-
-#system ignore
-.DS_Store
-Thumbs.db
+.project
+.settings/
+target/
+*.log*
+*.iml
+.idea/
+*.versionsBackup
